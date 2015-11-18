@@ -1,7 +1,9 @@
-function GrayOut( LeftOrRight, images, plot1, plotType1,  plot2, plotType2 )
+function GrayOut( LeftOrRight, pointCount, images, plot1, plotType1,  plot2, plotType2 )
 
     LeftOrRight = upper(LeftOrRight);
     
+    description = strcat('Click on', num2str(pointCount));
+    description = strcat(description, ' points');
     %Default = Left
     x = 1;
     y = 2;
@@ -33,14 +35,14 @@ function GrayOut( LeftOrRight, images, plot1, plotType1,  plot2, plotType2 )
         subplot(1,2,x);
         imshow( rgb2gray( imread( images(x,:) ) ) );
         title( '' );
-        if nargin > 2
+        if nargin > 3
             plot( plot1(1,:),plot1(2,:), plotType1 );
         end
 
         %Ensure Other Image is Colour
         subplot(1,2,y);
         imshow(  imread( images(y,:) ) );
-        title( 'Click on four Features' );
+        title( description );
     end
     
     

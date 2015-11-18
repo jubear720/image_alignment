@@ -1,9 +1,9 @@
-function [ X , Y ] = Plotter( plotType )
+function [ X , Y ] = Plotter( plotType, NumberOfPoints )
 
-    X = zeros(1,4);
-    Y = zeros(1,4);
+    X = zeros(1,NumberOfPoints);
+    Y = zeros(1,NumberOfPoints);
 
-    for i=1:4
+    for i=1:NumberOfPoints
         [ xPt, yPt ] = ginput(1);
         hold on
         plot( xPt,yPt, plotType );
