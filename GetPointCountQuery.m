@@ -6,5 +6,6 @@ function NumberPoints = GetPointCountQuery()
     defaultAnswer = {'4'};
     NumberPoints = inputdlg(prompt,dialogTitle,numLines,defaultAnswer);
     
+    
     NumberPoints =  str2num(NumberPoints{1});
 end
