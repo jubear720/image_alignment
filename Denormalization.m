@@ -1,4 +1,5 @@
-function H = Denormalization( H, T1, T2 )
+function HDenorm = Denormalization( H, T1, T2 )
 %Denormalization
-    H = inv(T2) * H * T1;
+    temp = T2/H;
+    HDenorm = temp*T1;
 end
