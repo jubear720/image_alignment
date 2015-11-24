@@ -19,7 +19,7 @@ Points = 4;
 %[p1, p2] = FakeCorrespondences();
 [ p1, p2] = SIFTCorrespondences( File2, File1 );
 H = RANSAC( p1, p2 );
-H = ComputeHomography( p1, p2 );
+%H = ComputeHomography( p1, p2 );
 
 Image3 = Overlay( Image1, Image2, H );
 

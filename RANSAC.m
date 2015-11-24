@@ -3,7 +3,7 @@ function H = RANSAC( p1, p2 )
 
     [~,sz] = size(p1);
     estimations = 1000;
-    dist_threshold = 20;
+    dist_threshold = 200;
     max_inlier = -1;
     min_std = 10000000;
     p = 0.99;
@@ -11,7 +11,7 @@ function H = RANSAC( p1, p2 )
     inliers_1 = [];
     inliers_2 = [];
     for i=1:estimations
-        i
+        i;
         %Choose random correspondences
         [ pA, pB ] = GetRandomPoints( p1, p2 );
 
@@ -37,11 +37,11 @@ function H = RANSAC( p1, p2 )
         numInliers = 0;
         good_inliers_1 = [];
         good_inliers_2 = [];
-        for j=1:4
+        for j=1:sz
             if distances(j) < dist_threshold
                 numInliers = numInliers + 1;
-                good_inliers_1 = [inliers_1; p1(:,j)'];
-                good_inliers_2 = [inliers_2; p2(:,j)'];
+                good_inliers_1 = [good_inliers_1; p1(:,j)'];
+                good_inliers_2 = [good_inliers_2; p2(:,j)'];
             end
         end
 
@@ -54,6 +54,8 @@ function H = RANSAC( p1, p2 )
     end
 
 
+    inliers_1
+    inliers_2
     H = ComputeHomography( inliers_1', inliers_2' );
 
 end
