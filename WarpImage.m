@@ -1,38 +1,49 @@
-function image = WarpImage( I, H, Padding )
+function image = WarpImage( I, H, Padding1, Padding2 )
+Ic2 = I;
+I=im2double(rgb2gray(I));
+%I = rgb2gray(I);
+[sourcex ,sourcey]=size(I);
 
 
-    %Get dimensions of second image
-    [h, w, d] = size(I);
-
-    xPad = Padding(1);
-    yPad = Padding(2);
-    h = h + yPad;
-    w = w + xPad;
-    
-    %construct a meshgrid
-    [ x, y ] = meshgrid( -w/2+1:w/2, -h/2+1:h/2 );
-
-    %shape pixels so they're in the appropriate data type
-    pixel = [ x(:)'; y(:)' ];
-    pix = [ pixel; ones(1, (w)*h) ];
-
-    %Apply H matrix to the all pixels in scene
-    scene  = H*pix;
 
 
-    % Return to original coordinate frame
-    xP =(scene(1,:)./(scene(3,:)))';
-    yP =(scene(2,:)./(scene(3,:)))';
-    xP = reshape(xP,  w,h);
-    yP = reshape(yP,  w,h);
+        xPad = Padding1(1);
+        yPad = Padding1(2);
+        Xmin = Padding2(1,1);
+        Xmax = Padding2(2,1);
+        Ymin = Padding2(1,2);
+        Ymax = Padding2(2,2);
+[Xsource, Ysource]=meshgrid(floor(Xmin):ceil(Xmax),floor(Ymin):ceil(Ymax));
+Xsourcevec=Xsource(:);
+Ysourcevec=Ysource(:);
+XY=[Xsourcevec Ysourcevec ones(length(Xsourcevec),1)];
+XpYp=H*XY';
+XpYp=XpYp';
+%Normalize Points
+normal=1./XpYp(:,3);
+XpYp(:,1)=normal.*XpYp(:,1);
+XpYp(:,2)=normal.*XpYp(:,2);
+XpYp(:,3)=normal.*XpYp(:,3);
 
-    % Warp image using homography calcs
-    clear image
-    image(:,:,1) = interp2(double(I(:,:,1)), xP,yP);
-    image(:,:,2) = interp2(double(I(:,:,2)), xP,yP);
-    image(:,:,3) = interp2(double(I(:,:,3)), xP,yP);
+Xp=reshape(XpYp(:,1),size(Xsource,1),size(Xsource,2))';
+Yp=reshape(XpYp(:,2),size(Xsource,1),size(Xsource,2))';
 
-    %Reshape the image so it's not absolutely garbage
-    image = reshape(image,[h w 3]);
+[sourcemeshY, sourcemeshX]=meshgrid(1:sourcey, 1:sourcex); %Source Image Initial Mesh (source)
+
+Ic2r=im2double(Ic2(:,:,1));
+Ic2b=im2double(Ic2(:,:,2));
+Ic2g=im2double(Ic2(:,:,3));
+
+warpedimagered=interp2(sourcemeshX'+100,sourcemeshY',Ic2r',Xp,Yp); %Warp the Initial Source Mesh to the Transformed Mesh
+warpedimageblue=interp2(sourcemeshX'+100,sourcemeshY',Ic2b',Xp,Yp);
+warpedimagegreen=interp2(sourcemeshX'+100,sourcemeshY',Ic2g',Xp,Yp);
+
+warpedimage(:,:,1)=warpedimagered;
+warpedimage(:,:,2)=warpedimageblue;
+warpedimage(:,:,3)=warpedimagegreen;
+
+figure()
+imshow(warpedimage,[]);
+image = warpedimage;
 
 end

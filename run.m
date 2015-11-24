@@ -13,12 +13,12 @@ Image2 = im2double(imread(File2));
 Points = 4;
 %Getting Correspondences
 %Matlab code to manually identify corresponding points from two views.
-[p1, p2] =  GetCorrespondences( Image1, Image2, Points );
-close all
+%[p1, p2] =  GetCorrespondences( Image1, Image2, Points );
+%close all
 
 %[p1, p2] = FakeCorrespondences();
-%[ p1, p2] = SIFTCorrespondences( Image1, Image2 );
-%H = RANSAC( p1, p2 );
+[ p1, p2] = SIFTCorrespondences( File2, File1 );
+H = RANSAC( p1, p2 );
 H = ComputeHomography( p1, p2 );
 
 Image3 = Overlay( Image1, Image2, H );
