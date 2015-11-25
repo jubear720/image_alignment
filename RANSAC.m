@@ -1,9 +1,13 @@
 function H = RANSAC( p1, p2 )
+%RANSAC RANdom SAmpling Consensus
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
 
 
     [~,sz] = size(p1);
-    estimations = 1000;
-    dist_threshold = 200;
+    estimations = 50;
+    dist_threshold = 10;
     max_inlier = -1;
     min_std = 10000000;
     p = 0.99;
@@ -37,7 +41,7 @@ function H = RANSAC( p1, p2 )
         numInliers = 0;
         good_inliers_1 = [];
         good_inliers_2 = [];
-        for j=1:sz
+        for j=1:4
             if distances(j) < dist_threshold
                 numInliers = numInliers + 1;
                 good_inliers_1 = [good_inliers_1; p1(:,j)'];
@@ -53,9 +57,7 @@ function H = RANSAC( p1, p2 )
 
     end
 
-
-    inliers_1
-    inliers_2
+    %Compute H with our new good inliers
     H = ComputeHomography( inliers_1', inliers_2' );
 
 end

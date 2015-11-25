@@ -1,7 +1,14 @@
 function [ xy1, xy2] = GetCorrespondences( img1, img2, numPoints )
+%GetCorrespondences User input for selecting corresponding points
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
 
 
-SideBySide( img1, img2 );
+fprintf('Manually Computing Correspondences\n');
+
+%Display images in same figure
+fig = SideBySide( img1, img2 );
 
 
 %Plot points on first image
@@ -18,7 +25,7 @@ GrayOut( 'left', numPoints, img1,img2, [x1; y1], p1 );
 sz = size(x2,2);
 xy2 = [x2; y2; ones(1,sz)];
 
-
+%Show both images in colour
 GrayOut( 'revert', 0, img1,img2, [x1; y1], p1,  [x2; y2], p2 );
 
 end

@@ -1,4 +1,8 @@
 function [ xy1, xy2] = FakeCorrespondences( )
+%FakeCorrespondences Dummy values for testing manual method
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
 
 xy1 = [ 512.4003  615.0794  567.2290  474.5187;
          84.4875  143.3037  188.1636  129.3474;

@@ -1,0 +1,892 @@
+
+%% bare_jrnl_compsoc.tex
+%% V1.4
+%% 2012/12/27
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8 or later) with an IEEE Computer
+%% Society journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex,
+%%                    bare_jrnl_transmag.tex
+%%*************************************************************************
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+% The Computer Society usually requires 12pt for submissions.
+%
+\documentclass[12pt,journal,compsoc]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[12pt,journal,compsoc]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  % \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  % \usepackage{cite}
+\fi
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+%
+% Note that some packages require special options to format as the Computer
+% Society requires. In particular, Computer Society  papers do not use
+% compressed citation ranges as is done in typical IEEE papers
+% (e.g., [1]-[4]). Instead, they list every citation separately in order
+% (e.g., [1], [2], [3], [4]). To get the latter we need to load the cite
+% package with the nocompress option which is supported by cite.sty v4.0
+% and later. Note also the use of a CLASSOPTION conditional provided by
+% IEEEtran.cls V1.7 and later.
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/tex-archive/info/epslatex/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\usepackage{gensymb}
+\usepackage{algpseudocode} 
+
+\usepackage{hyperref}
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Do not use the stfloats baselinefloat ability as IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/dblfloatfix/
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/endfloat/
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/url/
+% Basically, \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+% Do not put math or special symbols in the title.
+\title{Image Alignment \\ in Matlab}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+%
+%\IEEEcompsocitemizethanks is a special \thanks that produces the bulleted
+% lists the Computer Society journals use for "first footnote" author
+% affiliations. Use \IEEEcompsocthanksitem which works much like \item
+% for each affiliation group. When not in compsoc mode,
+% \IEEEcompsocitemizethanks becomes like \thanks and
+% \IEEEcompsocthanksitem becomes a line break with idention. This
+% facilitates dual compilation, although admittedly the differences in the
+% desired content of \author between the different types of papers makes a
+% one-size-fits-all approach a daunting prospect. For instance, compsoc 
+% journal papers have the author affiliations above the "Manuscript
+% received ..."  text while in non-compsoc journals this is reversed. Sigh.
+
+\author{Julian~Anthony~Brackins
+       % <-this % stops a space
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem J. Anthony Brackins is a Computational Sciences 
+and Robotics graduate student at The South Dakota School of Mines and Technology, 
+501 E St Joseph St, Rapid City, SD, 57701.\protect\\
+% note need leading \protect in front of \\ to get a newline within \thanks as
+% \\ is fragile and will error, could use \hfil\break instead.
+E-mail: julian.brackins@mines.sdsmt.edu
+}}
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{Image Alignment in Matlab, November~2015}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+% The publisher's ID mark at the bottom of the page is less important with
+% Computer Society journal papers as those publications place the marks
+% outside of the main text columns and, therefore, unlike regular IEEE
+% journals, the available text space is not reduced by their presence.
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2012 IEEE}
+% or like this to get the Computer Society new two part style.
+%\IEEEpubid{\makebox[\columnwidth]{\hfill 0000--0000/00/\$00.00~\copyright~2012 IEEE}%
+%\hspace{\columnsep}\makebox[\columnwidth]{Published by the IEEE Computer Society\hfill}}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark (Computer Society jorunal
+% papers don't need this extra clearance.)
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+% for Computer Society papers, we must declare the abstract and index terms
+% PRIOR to the title within the \IEEEtitleabstractindextext IEEEtran
+% command as these need to go into the title area created by \maketitle.
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\IEEEtitleabstractindextext{%
+\begin{abstract}
+Introduction to Computer Vision project studying the process of image stitching and alignment in order to stitch images of similar views.
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Computer Science, Computer Vision, Feature Matching, Image Alignment, Panorama, Matlab
+\end{IEEEkeywords}}
+
+
+% make the title area
+\maketitle
+
+
+% To allow for easy dual compilation without having to reenter the
+% abstract/keywords data, the \IEEEtitleabstractindextext text will
+% not be used in maketitle, but will appear (i.e., to be "transported")
+% here as \IEEEdisplaynontitleabstractindextext when the compsoc 
+% or transmag modes are not selected <OR> if conference mode is selected 
+% - because all conference papers position the abstract like regular
+% papers do.
+\IEEEdisplaynontitleabstractindextext
+% \IEEEdisplaynontitleabstractindextext has no effect when using
+% compsoc or transmag under a non-conference mode.
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% Computer Society journal papers do something a tad strange with the very
+% first section heading (almost always called "Introduction"). They place it
+% ABOVE the main text! IEEEtran.cls currently does not do this for you.
+% However, You can achieve this effect by making LaTeX jump through some
+% hoops via something like:
+%
+%\ifCLASSOPTIONcompsoc
+%  \noindent\raisebox{2\baselineskip}[0pt][0pt]%
+%  {\parbox{\columnwidth}{\section{Introduction}\label{sec:introduction}%
+%  \global\everypar=\everypar}}%
+%  \vspace{-1\baselineskip}\vspace{-\parskip}\par
+%\else
+%  \section{Introduction}\label{sec:introduction}\par
+%\fi
+%
+% Admittedly, this is a hack and may well be fragile, but seems to do the
+% trick for me. Note the need to keep any \label that may be used right
+% after \section in the above as the hack puts \section within a raised box.
+
+
+
+% The very first letter is a 2 line initial drop letter followed
+% by the rest of the first word in caps (small caps for compsoc).
+% 
+% form to use if the first word consists of a single letter:
+% \IEEEPARstart{A}{demo} file is ....
+% 
+% form to use if you need the single drop letter followed by
+% normal text (unknown if ever used by IEEE):
+% \IEEEPARstart{A}{}demo file is ....
+% 
+% Some journals put the first two words in caps:
+% \IEEEPARstart{T}{his demo} file is ....
+% 
+% Here we have the typical use of a "T" for an initial drop letter
+% and "HIS" in caps to complete the first word.
+\IEEEPARstart{T}{he} goal of this exercise is to construct a functional panorama stitcher. The program is separated into two stitching methods. The first iteration of the program will perform image alignment and stitching in a user-driven interface. Given an interface, a user can select 4 or more features that correspond to one another in similar scenes. In the second iteration of the program, the interest points will be automatically generated using the \textit{Scale-invariant feature transform} algorithm ( SIFT ) for detecting and matching features and the \textit{RANdom SAmple Consensus} algorithm ( RANSAC ) to remove outliers from the automatically matched key feature sets.
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+
+
+\section{Process}
+As stated previously, this project has been divided into two main approaches. The first method for image alignment is the user-driven implementation.
+
+\subsection{Manual Mosaicking}
+The first step is to design a manual, user-based design for image stitching. A lot of the functionality present in this implementation, particularly the Homography calculations, Image warping, and mosaic display are identical in both the manual and automated implementations for image alignment. Because of this, most of these topics will be explained in depth only in the manual mosaicking section.
+
+\subsubsection{Feature Selection}
+Using the \textit{ginput()} function in Matlab, a user can click on corresponding points in two images to select distinctive features visible in both scenes or images. The \textit{ginput()} functionality has been modified slightly in this implementation to allow the user to see each point in the scene immediately after clicking. Because of this, the traditional functionality of \textit{ginput()} that allows the user to cease selecting points by pressing the space bar has been disabled; instead, the user specifies how many interest points she/he will select in a graphical user interface before selecting the features.
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/click1}
+		  \caption{User interface for selecting matching features in two images.}
+		  \label{fig:click1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/click2}
+		  \caption{Resultant image from selected corresponding points in Figure~\ref{fig:click1}.}
+		  \label{fig:click2}
+\end{figure}
+
+\subsubsection{Computing Homography}
+Computation of the Homography Matrix is done by using the Direct Linear Transformation algorithm.
+After calculating the H matrix, the images in one point can be warped onto a second image reference frame. With these warpings computed, two images can then be stitched together.
+
+\subsubsection{Image Warping}
+Image warping is performed by interpolating points from one image reference frame to lie in the same reference frame as a second image. Given two images $p$ and $p'$, the points in image $p$ are inverse warped onto the same plane as $p'$ using a computed homography matrix.
+
+For some reason, using $interp2()$ seemed to be fine at first when performing image warping and mosaicking. However, the bounding box would not work properly with the $meshgrid()$ function that creates the 2 dimensional canvas which the points are interpolated onto. The $WarpImage.m$ shows the unsuccessful implementation of image warping that does not compute the appropriate bounding box. 
+
+The correct implementation of image warping and mosaic displaying can be found in the $Overlay.m$ function. This method uses an $Interpolation()$ function that uses this equation for linear interpolation:
+
+
+\subsubsection{Mosaic Display}
+Due to the nature of the previously described image warping implementation, the mosaic is generated at the same time that the second image is being warped. Therefore, all that is needed is a simple \textit{imshow()} call to display the mosaic containing the stitched images on the same plane.
+
+\subsection{Automatic Mosaicking}
+With all of the functionality for image stitching properly implemented, the next step is to automate the feature selection process. In order to accomplish this, two additional features are added to the program, the automated feature selection for returning a list of corresponding points, and a RANSAC algorithm to reduce the number of invalid correspondences generated from the automated feature selection points list.
+
+\subsubsection{Automated Feature Selection}
+The automated feature selection method used in this program is SIFT. As per permission from instructor, the SIFT implementation available on David Lowe's website, {\url{http://www.cs.ubc.ca/~lowe/keypoints/}}.
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/rocket1}
+		  \caption{SIFT feature matching for a scene in the video game Fallout 4.}
+		  \label{fig:rocket1}
+\end{figure}
+
+\subsubsection{Removing Poor Correspondences}
+Automated feature selection is not perfect. Due to the potential of returning false positive correspondences in a purely automatic feature selection algorithm, an additional verification step must be implemented in order to ensure the homography transform is computed only using valid corresponding points.
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/rocket2}
+		  \caption{Image Stitching of Figure~\ref{fig:rocket1} without RANSAC.}
+		  \label{fig:rocket2}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/rocket3}
+		  \caption{Image Stitching of Figure~\ref{fig:rocket1} with RANSAC.}
+		  \label{fig:rocket3}
+\end{figure}
+
+\section{Benchmarks}
+In order to validate the implementation of image stitching in the Matlab program, the following benchmark image sets have been tested. Three different validation categories have been created for the purposes of evaluating the image stitching implementation for a course grade.
+
+\subsection{Validation on Course Website Benchmark Images}\label{sub:bench_1}
+Several benchmark images have been uploaded to the course web page, {\url{http://webpages.sdsmt.edu/~rhoover/Dr._Randy_C._Hoover/CENG414_F15.html}} for the purpose of validating the image alignment code written. For brevity, these results have been added to the appendix of this document.
+
+\subsection{Validation on Personal Images}\label{sub:bench_2}
+To validate the capability of the image stitching implementations, scenes from the computer game Fallout 4 have been used to create panoramic views of the game world.
+
+
+Figures~\ref{fig:castle1} demonstrates the functionality of the manual image stitching implementation on a skyline view in the game world.
+ \begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/castle1}
+		  \caption{Image stitched view of post-apocalyptic Boston in Fallout 4.}
+		  \label{fig:castle1}
+\end{figure}
+
+Figures~\ref{fig:rocket1},~\ref{fig:rocket2}, and~\ref{fig:rocket3} are another image set taken from Fallout, demonstrating the functionality of RANSAC.
+
+\subsection{Warping Images Together}\label{sub:bench_3}
+A rather amusing feature of image alignment is the ability to take advantage of Homographic transformation in order to impose images onto the features of other, dissimilar images. The particular example illustrated in Figure~\ref{fig:shoot3} depicts a logo being warped onto the screen of a laptop in another image.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{.25\textwidth}
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/shoot1}
+		  \caption{Matlab logo}
+		  \label{fig:shoot1}
+	\end{subfigure}%
+	\begin{subfigure}{.25\textwidth}
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/shoot2}
+		  \caption{Man Holding a firearm.}
+		  \label{fig:shoot2}
+	\end{subfigure}
+	\caption{Two Dissimilar Images}
+	\label{fig:iso1}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/shoot3}
+		  \caption{Images Warped Together.}
+		  \label{fig:shoot3}
+\end{figure}
+
+\subsection{Other Features}
+
+\subsubsection{User Interface}
+The program contains a simple user interface when running the image alignment. Simply select two image files using the Image Select buttons, and choose the method for performing image alignment. For Manual image alignment, the number of corresponding points must be input by the user, with the default being 4. After running the program, a canvas pops up, allowing the user to click features on two images. For Automated image alignment, the user is given the choice to run the program with the RANSAC algorithm, increasing computation time but reducing the number of erroneous correspondences.
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/gui1}
+		  \caption{User Interface}
+		  \label{fig:gui1}
+\end{figure}
+
+\subsubsection{Image Rectification}
+Image Homography can be used to perform image rectification. Based on the angle in which an object is viewed, its proportions can be skewed. Homography transformation can be used to modify the skew of an image. In~\ref{fig:rubix1} a Rubix cube is being displayed with 3 sides visible, the two sides, and the top of the cube. The cube also appearst to be rotated approximately 45 degrees in reference to the viewing angle. In~\ref{fig:rubix2}, the projections of a Rubix cube have been modified so that the squares on the surface do not appear warped, as if one were looking at the squares from a top-down perspective (although this is technically inaccurate, since the two sides would not be visible at all if the cube were being viewed from above.)
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/rubix1}
+		  \caption{Rubix Cube Image. Top squares skewed due to angle of image captured}
+		  \label{fig:rubix1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/rubix2}
+		  \caption{Rubix Cube Image Warped to project top squares without any skewing.}
+		  \label{fig:rubix2}
+\end{figure}
+
+\clearpage
+
+\section{Conclusion}
+This project was an in depth analysis on image alignment and stitching. Stitching multiple images into a panoramic view is a very important computer vision task, and while feature matching algorithms such as SIFT have come a very long way in regards to feature detection, additional algorithms must be implemented to validate matched features. In this program, RANSAC was implemented. Despite being a useful algorithm, RANSAC is computationally slow, and greatly increased the amount of time spent aligning two images. Despite this, the RANSAC algorithm still proved to be useful in removing false positives generated in an automated feature list.
+
+The repository containing the code discussed in this writeup can be found at {\url{https://github.com/jbrackins/image_alignment}}
+
+
+
+
+
+% if have a single appendix:
+%\appendix[Proof of the Zonklar Equations]
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+
+
+\appendices
+\section{Image Results}
+
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/autoquad1}
+		  \caption{SDSM\&T Quad (Manual Stitching)}
+		  \label{fig:autoquad1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/dino1}
+		  \caption{Dinosaur Park in Rapid City, South Dakota (Automated Stitching)}
+		  \label{fig:dino1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/tower1}
+		  \caption{Fire Tower Image Set (Manual Stitching)}
+		  \label{fig:tower1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+		  \centering
+		  \includegraphics[width=1\linewidth]{img/sylvan1}
+		  \caption{Sylvan Lake in South Dakota (Automated Stitching)}
+		  \label{fig:sylvan1}
+\end{figure}
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+
+
+
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+
+
+% insert where needed to balance the two columns on the last page with
+% biographies
+%\newpage
+
+\begin{thebibliography}{9}
+\bibitem{ref:siftlowe} 
+David G. Lowe.
+"Distinctive image features from scale-invariant keypoints,"
+\textit{International Journal of Computer Vision}. 
+60, 2 (2004), pp. 91-110.
+ 
+\bibitem{ref:ransac} 
+Konstantinos G. Derpanis
+\textit{Overview of the RANSAC Algorithm}.
+May 13, 2010.
+ 
+\bibitem{ref:interp} 
+Linear Interpolation
+\\\texttt{https://en.wikipedia.org/wiki/Linear\_interpolation}
+\end{thebibliography}
+
+
+% You can push biographies down or up by placing
+% a \vfill before or after them. The appropriate
+% use of \vfill depends on what kind of text is
+% on the last page and whether or not the columns
+% are being equalized.
+
+%\vfill
+
+% Can be used to pull up biographies so that the bottom of the last one
+% is flush with the other column.
+%\enlargethispage{-5in}
+
+
+
+% that's all folks
+\end{document}
+
+

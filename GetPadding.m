@@ -1,4 +1,8 @@
 function [ xPad, yPad, X, Y ] = GetPadding( I1, I2, H )
+%GetPadding Obsolete method for constructing bounding box
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
 
     [h1, w1, d1] = size(I1);
     C1 = [   0 0 w1 w1;

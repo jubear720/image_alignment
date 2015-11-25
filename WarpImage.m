@@ -1,4 +1,9 @@
 function image = WarpImage( I, H, Padding1, Padding2 )
+%WarpImage Obsolete version of image warping. Refer to writeup
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
+
 Ic2 = I;
 I=im2double(rgb2gray(I));
 %I = rgb2gray(I);

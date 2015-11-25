@@ -1,11 +1,13 @@
-function SideBySide( image1, image2 )
+function fig = SideBySide( image1, image2 )
 %SideBySide Display two images next to one another
-
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
 screensize = get( 0, 'Screensize' );
 x = screensize(3);
 y = screensize(4);
 
-figure('position', [0, 0, x, y]);
+fig = figure('position', [0, 0, x, y]);
 
 
 %Right Image

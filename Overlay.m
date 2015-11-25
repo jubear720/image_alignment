@@ -1,4 +1,10 @@
 function composite = Overlay( im1, im2, H )
+%Overlay Function for warping images together and creating image mosaic
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
+
+fprintf('Overlaying Images...\n');
 
     %Set pPrime and P
     pPrime = rgb2gray(im1);

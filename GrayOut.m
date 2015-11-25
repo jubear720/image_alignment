@@ -1,6 +1,8 @@
 function GrayOut( LeftOrRight, pointCount, im1,im2, plot1, plotType1,  plot2, plotType2 )
-
-
+%GGrayOut Display one image in colour and the other in black and white
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
 
     LeftOrRight = upper(LeftOrRight);
     

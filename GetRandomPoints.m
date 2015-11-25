@@ -1,4 +1,8 @@
 function [ xy1, xy2 ] = GetRandomPoints( p1, p2 )
+%GetRandomPoints Select 4 random corresponding points in the point lists
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
 
     %We can assume size(p1) and size(p2) yield identical sizes
     [~,sz] = size(p1);

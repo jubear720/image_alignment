@@ -1,5 +1,8 @@
 function T = Normalization( points )
-
+%Normalization Normalize the points
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
     %Compute mean of your points
     [ muX, muY ] = ComputeMean( points );
     

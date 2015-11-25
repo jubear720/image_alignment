@@ -1,5 +1,8 @@
 function pixVal = Interpolation( img, chan, x, y )
-
+%Interpolation Linear Interpolation method
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
     xFrac = mod(x,1);
     yFrac = mod(y,1);
 

@@ -1,4 +1,9 @@
 function [ File1, File2 ] = GetFileQuery( default1, default2 )
+%GetFileQuery User input for selecting corresponding images
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
+
     if nargin < 2
        default1 = 'img\Yosemite\Yosemite1.jpg';
        default2 = 'img\Yosemite\Yosemite2.jpg';

@@ -1,4 +1,9 @@
 function [box, bounds] = BoundingBox( i1, i2, H )
+%BoundingBox Compute Bounding Box that defines entire area that fits both
+%images
+%%% Julian Anthony Brackins   %%%
+%%% CSC 514 - Computer Vision %%%
+%%% Project 2                 %%%
 
     %Set pPrime and p
     pPrime = rgb2gray(i1);
